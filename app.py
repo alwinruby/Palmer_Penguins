@@ -86,6 +86,27 @@ if st.checkbox("Show Raw Data", False):
     st.subheader('Raw data')
     st.write(df)
 
+st.title('Quick  Explore')
+st.sidebar.subheader(' Quick  Explore')
+st.markdown("Tick the box on the side panel to explore the dataset.")
+if st.sidebar.checkbox('Basic info'):
+    if st.sidebar.checkbox('Dataset Quick Look'):
+        st.subheader('Dataset Quick Look:')
+        st.write(df.head())
+    if st.sidebar.checkbox("Show Columns"):
+        st.subheader('Show Columns List')
+        all_columns = df.columns.to_list()
+        st.write(all_columns)
+    # if st.sidebar.checkbox('Column Names'):
+    #     st.subheader('Column Names')
+    #     st.write(df.columns())
+    if st.sidebar.checkbox('Statistical Description'):
+        st.subheader('Statistical Data Descripition')
+        st.write(df.describe())
+    if st.sidebar.checkbox('Missing Values?'):
+        st.subheader('Missing values')
+        st.write(df.isnull().sum())
+
 
 # st.title('Quick  Explore')
 # st.sidebar.subheader(' Quick  Explore')
